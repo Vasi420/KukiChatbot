@@ -15,7 +15,7 @@ MONGO_URL = os.environ.get("MONGO_URL", None)
 
 
 bot = Client(
-    "KukiBot" ,
+    "ASkukichatbot" ,
     api_id = API_ID,
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
@@ -49,9 +49,9 @@ async def addchat(_, message):
     is_kuki = kuki.find_one({"chat_id": message.chat.id})
     if not is_kuki:
         kuki.insert_one({"chat_id": message.chat.id})
-        await message.reply_text(f"✅ | Successfully\nKuki Chatbot of this Group is set to @{message.chat.username}\n Requested by [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n© @MetaVoid")
+        await message.reply_text(f"✅ | Successfully\nASkukichatbot of this Group is set to @{message.chat.username}\n Requested by [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n© @MetaVoid")
     else:
-        await message.reply_text(f"Already Setup Kuki Chatbot of this Group Is @{message.chat.username}")
+        await message.reply_text(f"Already SetupASkukichatbot of this Group Is @{message.chat.username}")
 
 
 @bot.on_message(
@@ -75,7 +75,7 @@ async def rmchat(_, message):
         await message.reply_text("Already Kuki ChatBot Disable")
     else:
         kuki.delete_one({"chat_id": message.chat.id})
-        await message.reply_text("✅ | Kuki Chatbot is disable!")
+        await message.reply_text("✅ | ASkukichatbot is disable!")
 
 
 
@@ -177,7 +177,7 @@ async def start(client, message):
     if message.chat.type != "private":
         buttons = InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="Click here",
-                url=f"t.me/kukichatbot?start")]])
+                url=f"t.me/ASkukichatbot?start")]])
         await message.reply("Contact me in PM",
                             reply_markup=buttons)
         
